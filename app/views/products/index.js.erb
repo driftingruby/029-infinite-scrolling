@@ -1,0 +1,7 @@
+$('#products').append('<%= j render("product_page_header") %>');
+$('#products').append('<%= j render(@products) %>');
+<% if @products.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@products) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
